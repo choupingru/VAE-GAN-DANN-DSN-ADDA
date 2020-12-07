@@ -98,30 +98,33 @@ def main():
 	if args.ep_src != -1:
 		training_param['ep_src'] = args.ep_src
 	### end of setting ###
-	for epoch in range(start_epoch, args.epochs + 1):
-		training_param['epoch'] = epoch
-		if epoch == args.ep_src:
-			print('\nTarget Encoder Loading Weight from Source Encoder\n')
-			net['src'].eval()
-			net['cls'].eval()
-			net['tar'].load_state_dict(net['src'].state_dict())
-		### training
-		train(**training_param)
-		### if have testing function, then test
-		if hasattr(test, '__call__') and args.ep_src <= epoch:
-			test(test_loader, net, epoch, device)
-		### save checkpoint
-		state_dicts = {}
-		for key in net:
-			state_dicts[key] = net[key].state_dict()
-		for key in state_dicts:
-			state_dict = {k:v.cpu() for k, v in state_dicts[key].items()}
-			state = {'epoch': epoch,
-					 'state_dict': state_dict}
-			if args.src == 'undefined' or args.tar == 'undefined':
-				torch.save(state, root / args.model / ('{:>03d}_'.format(epoch)+key+'.ckpt'))
-			else:
-				torch.save(state, root / (args.src + '2' + args.tar) / args.model / ('{:>03d}_'.format(epoch)+key+'.ckpt'))
-		
+	if not args.test:
+		for epoch in range(start_epoch, args.epochs + 1):
+			training_param['epoch'] = epoch
+			if epoch == args.ep_src:
+				print('\nTarget Encoder Loading Weight from Source Encoder\n')
+				net['src'].eval()
+				net['cls'].eval()
+				net['tar'].load_state_dict(net['src'].state_dict())
+			### training
+			train(**training_param)
+			### if have testing function, then test
+			if hasattr(test, '__call__') and args.ep_src <= epoch:
+				test(test_loader, net, epoch, device)
+			### save checkpoint
+			state_dicts = {}
+			for key in net:
+				state_dicts[key] = net[key].state_dict()
+			for key in state_dicts:
+				state_dict = {k:v.cpu() for k, v in state_dicts[key].items()}
+				state = {'epoch': epoch,
+						 'state_dict': state_dict}
+				if args.src == 'undefined' or args.tar == 'undefined':
+					torch.save(state, root / args.model / ('{:>03d}_'.format(epoch)+key+'.ckpt'))
+				else:
+					torch.save(state, root / (args.src + '2' + args.tar) / args.model / ('{:>03d}_'.format(epoch)+key+'.ckpt'))
+	else:
+		assert hasattr(test, '__call__'), 'Test not implement in {} model'.format(args.model)
+		test(test_loader, net, epoch, device)
 if __name__ == '__main__':
 	main()
