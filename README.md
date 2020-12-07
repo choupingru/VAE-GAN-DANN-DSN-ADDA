@@ -49,7 +49,7 @@ python main.py --task DANN --model ADDA --src [source name] --tar [target name]
 Below is original paper link :
 > [`Variance Autoencoder`](https://arxiv.org/abs/1312.6114)
 > [`Generative Adversarial Network`](https://arxiv.org/abs/1406.2661)
-> [`Domain Adversarial Neural Network`](https://arxiv.org/abs/1505.07818`](https://arxiv.org/abs/1505.07818)
-> [`Domain Seperation Network`](https://papers.nips.cc/paper/2016/file/45fbc6d3e05ebd93369ce542e8f2322d-Paper.pdf`](https://papers.nips.cc/paper/2016/file/45fbc6d3e05ebd93369ce542e8f2322d-Paper.pdf)
-> [`Adversarial Discriminative Domain Adaptation`](https://arxiv.org/abs/1702.05464`](https://arxiv.org/abs/1702.05464)
+> [`Domain Adversarial Neural Network`](https://arxiv.org/abs/1505.07818)
+> [`Domain Seperation Network`](https://papers.nips.cc/paper/2016/file/45fbc6d3e05ebd93369ce542e8f2322d-Paper.pdf)
+> [`Adversarial Discriminative Domain Adaptation`](https://arxiv.org/abs/1702.05464)
 
