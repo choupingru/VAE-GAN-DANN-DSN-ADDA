@@ -47,9 +47,9 @@ python main.py --task DANN --model ADDA --src [source name] --tar [target name]
 ```
 
 # Reference 
-> [`VAE`](https://arxiv.org/abs/1312.6114)
-> [`GAN`](https://arxiv.org/abs/1406.2661)
-> [`DANN`](https://arxiv.org/abs/1505.07818)
-> [`DSN`](https://papers.nips.cc/paper/2016/file/45fbc6d3e05ebd93369ce542e8f2322d-Paper.pdf)
-> [`ADDA`](https://arxiv.org/abs/1702.05464)
+[`VAE`](https://arxiv.org/abs/1312.6114)
+[`GAN`](https://arxiv.org/abs/1406.2661)
+[`DANN`](https://arxiv.org/abs/1505.07818)
+[`DSN`](https://papers.nips.cc/paper/2016/file/45fbc6d3e05ebd93369ce542e8f2322d-Paper.pdf)
+[`ADDA`](https://arxiv.org/abs/1702.05464)
 
