@@ -24,28 +24,32 @@ bash get_dataset.sh
 * --tar : target domain name : [usps, mnistm, svhn] ⚠️ ***only for DANN task*** ⚠️ 
 * --ep_src : number of pretrained epoch ⚠️ ***only for ADDA model*** ⚠️ 
 
-
-# Variance AutoEncoder(VAE)
+# Train 
+###### Variance AutoEncoder(VAE)
 ```python
 python main.py --task VAE --model VAE 
 ```
-
-# Generative Adversarial Network(GAN)
+###### Generative Adversarial Network(GAN)
 ```python
 python main.py --task GAN --model GAN 
 ```
-
-# Domain Adversarial Neural Network 
+###### Domain Adversarial Neural Network 
 ```python
-python main.py --task DANN --model DANN 
+python main.py --task DANN --model DANN --src [source name] --tar [target name]
+```
+###### Domain Seperation Network
+```python
+python main.py --task DANN --model DSN --src [source name] --tar [target name]
+```
+###### Adversarial Discriminative Domain Adaptation
+```python
+python main.py --task DANN --model ADDA --src [source name] --tar [target name]
 ```
 
-# Domain Seperation Network
-```python
-python main.py --task DANN --model DSN
-```
+# Reference 
+> [`VAE`](https://arxiv.org/abs/1312.6114)
+> [`GAN`](https://arxiv.org/abs/1406.2661)
+> [`DANN`](https://arxiv.org/abs/1505.07818)
+> [`DSN`](https://papers.nips.cc/paper/2016/file/45fbc6d3e05ebd93369ce542e8f2322d-Paper.pdf)
+> [`ADDA`](https://arxiv.org/abs/1702.05464)
 
-# Adversarial Discriminative Domain Adaptation
-```python
-python main.py --task DANN --model ADDA
-```
