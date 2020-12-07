@@ -20,9 +20,9 @@ bash get_dataset.sh
 * --model : model name
 * --test : test mode (default 0)
 * --task : which task
-* --src : source domain name : [usps, mnistm, svhn] *only for DANN task* 
-* --tar : target domain name : [usps, mnistm, svhn] *only for DANN task*
-* --ep_src : number of pretrained epoch *only for ADDA model*
+* --src : source domain name : [usps, mnistm, svhn] ⚠️ ***only for DANN task*** ⚠️ 
+* --tar : target domain name : [usps, mnistm, svhn] ⚠️ ***only for DANN task*** ⚠️ 
+* --ep_src : number of pretrained epoch ⚠️ ***only for ADDA model*** ⚠️ 
 
 
 # Variance AutoEncoder(VAE)
